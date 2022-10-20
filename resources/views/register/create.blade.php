@@ -8,8 +8,7 @@
             <x-form-input name="username" />
             <x-form-input name="email" type="email" />
             <x-form-input name="password" type="password" />
-            <button class="bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-600"
-                type="submit">Register</button>
+            <x-form-button>REGISTER</x-form-button>
         </form>
     </main>
 </x-layout>   

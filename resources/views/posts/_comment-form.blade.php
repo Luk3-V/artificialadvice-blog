@@ -4,7 +4,7 @@
             @csrf
 
             <header class="flex items-center space-x-3 mb-6">
-                <img src="https://i.pravatar.cc/60" alt="" width="40" height="40" class="rounded-full">
+                <img src="{{ asset(auth()->user()->avatar) }}" alt="" width="40" height="40" class="rounded-full">
             
                 <span>Write a comment . . .</span>
             </header>

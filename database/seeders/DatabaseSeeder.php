@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Writer;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,15 +20,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->create([ 'name'=>'John Doe' ]);
+        $user = User::factory()->create([ 'username'=>'luk3v', 'email'=>'luke.vanhaezebrouck@gmail.com', 'password'=>'password' ]);
 
-        $personal = Category::create(['slug'=>'personal', 'name'=>'Personal']);
-        $work = Category::create(['slug'=>'work', 'name'=>'Work']);
-        $hobby = Category::create(['slug'=>'hobby', 'name'=>'Hobby']);
+        $technology = Category::create(['slug'=>'technology', 'name'=>'Technology']);
+        $business = Category::create(['slug'=>'business', 'name'=>'Business']);
+        $health = Category::create(['slug'=>'health', 'name'=>'Health']);
 
-        Post::factory(5)->create([ 'user_id'=>$user->id, 'category_id'=>$work->id ]);
-        Post::factory(10)->create();
+        $rytr = Writer::create(['name'=>'Rytr', 'slug'=>'rytr', 'url'=>'https://rytr.me/', 'avatar'=>'writer_avatars/rytr.png']);
 
-        Comment::factory(7)->create([ 'post_id'=>1 ]);
+        Post::factory()->create([ 'writer_id'=>$rytr->id ]);
     }
 }

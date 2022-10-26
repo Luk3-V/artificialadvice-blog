@@ -8,6 +8,13 @@
     
                 <x-form-input name="title" />
                 <x-form-input name="slug" />
+                <x-form-input name="writer_id" type="select" >
+                    @foreach ($writers as $writer)
+                        <option value="{{ $writer->id }}" {{ old('writer_id') == $writer->id ? 'selected' : ''}}>
+                            {{ ucwords($writer->name) }}
+                        </option>
+                    @endforeach
+                </x-form-input>
                 <x-form-input name="thumbnail" type="file"/>
                 <x-form-input name="summary" type="textarea"/>
                 <x-form-input name="body" type="textarea"/>

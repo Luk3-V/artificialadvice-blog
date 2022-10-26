@@ -9,6 +9,13 @@
     
                 <x-form-input name="title" :value="old('title', $post->title)"/>
                 <x-form-input name="slug" :value="old('slug', $post->slug)"/>
+                <x-form-input name="writer_id" type="select" >
+                    @foreach ($writers as $writer)
+                        <option value="{{ $writer->id }}" {{ old('writer_id') == $writer->id ? 'selected' : ''}}>
+                            {{ ucwords($writer->name) }}
+                        </option>
+                    @endforeach
+                </x-form-input>
                 <div class="flex justify-between">
                     <x-form-input name="thumbnail" type="file" :value="old('thumbnail', $post->thumbnail)" :required="false"/>
                     <img src="{{ asset($post->thumbnail) }}" alt="" class="rounded-xl w-64 mb-6">

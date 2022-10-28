@@ -1,11 +1,11 @@
 @props(['post'])
 
 <x-panel article class="md:flex transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5">
-    <a class="basis-1/3 md:mr-8" href="/posts/{{ $post->slug }}">
+    <a class="md:mr-8" href="/posts/{{ $post->slug }}" style="flex: 1 1 auto;">
         <img src="{{ asset($post->thumbnail) }}" alt="Blog Post illustration" class="rounded-xl">
     </a>
 
-    <div class="basis-2/3 flex flex-col justify-between">
+    <div class="flex flex-col justify-between" style="flex: 2 1 auto;">
         <header class="mt-8 md:mt-0">
             <div class="space-x-2">
                 <x-category-button :category="$post->category"/>

@@ -6,7 +6,7 @@
     <div>
         <header class="mb-3">
             <strong>{{ $comment->author->username }}</strong>
-            <p class="text-xs">Posted <time>{{ $comment->created_at->format('F j, Y, g:i a') }}</time></p>
+            <p class="text-xs">Posted <time>{{ $comment->created_at->diffForHumans() }}</time></p>
         </header>
 
         <p>{{ $comment->body }}</p>

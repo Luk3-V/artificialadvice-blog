@@ -20,14 +20,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->create([ 'username'=>'luk3v', 'email'=>'luke.vanhaezebrouck@gmail.com', 'password'=>'password' ]);
+        $user = User::factory()->create([ 'username'=>'luk3v', 'email'=>'luke.vanhaezebrouck@gmail.com', 'password'=>'password', 'avatar'=>'avatars/luk3v.png' ]);
 
         $technology = Category::create(['slug'=>'technology', 'name'=>'Technology']);
         $business = Category::create(['slug'=>'business', 'name'=>'Business']);
         $health = Category::create(['slug'=>'health', 'name'=>'Health']);
 
-        $rytr = Writer::create(['name'=>'Rytr', 'slug'=>'rytr', 'url'=>'https://rytr.me/', 'avatar'=>'writer_avatars/rytr.png']);
+        $rytr = Writer::create(['name'=>'Rytr', 'slug'=>'rytr', 'url'=>'https://rytr.me/', 'avatar'=>'rytr.png']);
 
-        Post::factory()->create([ 'writer_id'=>$rytr->id ]);
+        Post::factory()->create([ 'writer_id'=>$rytr->id, 'thumbnail'=>'thumbnails/test.png' ]);
     }
 }

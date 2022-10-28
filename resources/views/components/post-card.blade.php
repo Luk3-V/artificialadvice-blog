@@ -1,7 +1,7 @@
 <x-panel article {{ $attributes->merge(['class'=>'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }}>
-    <div>
+    <a href="/posts/{{ $post->slug }}">
         <img src="{{ asset($post->thumbnail) }}" alt="Blog Post illustration" class="rounded-xl">
-    </div>
+    </a>
 
     <div class="mt-8 flex flex-col justify-between">
         <header>
@@ -11,13 +11,13 @@
 
             <div class="mt-4">
                 <a href="/posts/{{ $post->slug }}">
-                    <h1 class="text-3xl">
+                    <h1 class="text-3xl hover:underline">
                         {{ $post->title }}
                     </h1>
                 </a>
 
                 <span class="mt-2 block text-gray-400 text-xs">
-                    Published <time>{{ $post->created_at->diffForHumans() }}</time>
+                    Published <time>{{ $post->created_at->format('F j, Y, g:i a') }}</time>
                 </span>
             </div>
         </header>
@@ -28,10 +28,10 @@
 
         <footer class="flex justify-between items-center mt-8">
             <div class="flex items-center text-sm">
-                <img src="{{ asset($post->writer->avatar) }}" alt="avatar">
+                <img src="{{'/images/'.$post->writer->avatar}}" alt="avatar">
                 <div class="ml-3">
-                    <a href="/?writer={{ $post->writer->slug }}"><h5 class="font-bold">{{ $post->writer->name }}</h5></a>
-                    <a href="{{ $post->writer->url }}">{{ $post->writer->url }}</a>
+                    <a href="/?writer={{ $post->writer->slug }}"><h5 class="font-bold hover:underline">{{ $post->writer->name }}</h5></a>
+                    <a href="{{ $post->writer->url }}" class="hover:underline">{{ $post->writer->url }}</a>
                 </div>
             </div>
 

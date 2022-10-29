@@ -1,11 +1,11 @@
 @props(['post'])
 
 <x-panel article class="md:flex transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5">
-    <a class="md:mr-8" href="/posts/{{ $post->slug }}" style="flex: 1 1 auto;">
+    <a class="w-2/3 md:mr-8" href="/posts/{{ $post->slug }}">
         <img src="{{ asset($post->thumbnail) }}" alt="Blog Post illustration" class="rounded-xl">
     </a>
 
-    <div class="flex flex-col justify-between" style="flex: 2 1 auto;">
+    <div class="w-full flex flex-col justify-between">
         <header class="mt-8 md:mt-0">
             <div class="space-x-2">
                 <x-category-button :category="$post->category"/>
@@ -25,7 +25,7 @@
         </header>
 
         <div class="text-sm mt-2 space-y-4">
-            {!! $post->summary !!}
+            {!! \Illuminate\Support\Str::of($post->summary)->markdown() !!}
         </div>
 
         <footer class="flex justify-between items-center mt-8">

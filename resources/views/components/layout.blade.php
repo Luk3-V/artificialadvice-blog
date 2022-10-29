@@ -65,7 +65,7 @@
 
             <div class="mt-10">
                 <div class="relative inline-block mx-auto md:bg-gray-200 rounded-full">
-                    <form method="POST" action="/newsletter" class="md:flex text-sm">
+                    <form method="POST" action="/newsletter" class="md:flex text-sm mb-0">
                         @csrf
                         
                         <div class="md:py-3 md:px-5 flex items-center">

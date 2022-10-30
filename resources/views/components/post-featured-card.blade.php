@@ -24,11 +24,11 @@
             </div>
         </header>
 
-        <div class="text-sm mt-2 space-y-4">
+        <div class="text-sm mt-2 space-y-4 mb-8">
             {!! \Illuminate\Support\Str::of($post->summary)->markdown() !!}
         </div>
 
-        <footer class="flex justify-between items-center mt-8">
+        <footer class="flex justify-between items-center mt-auto">
             <div class="flex items-center text-sm">
                 <img src="{{ asset($post->writer->avatar) }}" alt="avatar" width="50" height="50" class="rounded">
                 <div class="ml-3">
@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="hidden md:block">
+            <div>
                 <a href="/posts/{{ $post->slug }}"
                 class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
                 >Read More</a>

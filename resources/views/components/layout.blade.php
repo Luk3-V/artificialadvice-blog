@@ -90,6 +90,8 @@
                 @enderror
             </div>
         </footer>
+
+        <div class="text-center mt-6">By Luke Vanhaezebrouck — <a href="https://luke-v.com" class="text-blue-500 hover:underline">www.luke-v.com</a></div>
     </section>
 
     <x-flash />

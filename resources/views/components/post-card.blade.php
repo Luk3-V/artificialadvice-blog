@@ -1,9 +1,9 @@
-<x-panel article {{ $attributes->merge(['class'=>'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }}>
+<x-panel article {{ $attributes->merge(['class'=>'flex flex-col transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5']) }}>
     <a href="/posts/{{ $post->slug }}">
         <img src="{{ asset($post->thumbnail) }}" alt="Blog Post illustration" class="rounded-xl">
     </a>
 
-    <div class="mt-8 flex flex-col justify-between">
+    <div class="mt-8 flex flex-col justify-between flex-grow">
         <header>
             <div class="space-x-2">
                 <x-category-button :category="$post->category"/>
@@ -22,11 +22,11 @@
             </div>
         </header>
 
-        <div class="text-sm mt-4 space-y-4">
+        <div class="text-sm mt-4 space-y-4 mb-8">
             {!! \Illuminate\Support\Str::of($post->summary)->markdown() !!}
         </div>
 
-        <footer class="flex justify-between items-center mt-8">
+        <footer class="flex justify-between items-center mt-auto">
             <div class="flex items-center text-sm">
                 <img src="{{ asset($post->writer->avatar) }}" alt="avatar" width="50" height="50" class="rounded">
                 <div class="ml-3">

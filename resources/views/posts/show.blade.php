@@ -59,7 +59,7 @@
                 </p>
 
                 <div class="flex items-center md:justify-center text-sm mt-4">
-                    <img src="{{'/images/'.$post->writer->avatar}}" alt="avatar" width="50" height="50" class="rounded">
+                    <img src="{{ asset($post->writer->avatar) }}" alt="avatar" width="50" height="50" class="rounded">
                     <div class="ml-3 text-left">
                         <a href="/?writer={{ $post->writer->slug }}"><h5 class="font-bold hover:underline">{{ $post->writer->name }}</h5></a>
                         <a href="{{ $post->writer->url }}" class="hover:underline">{{ $post->writer->url }}</a>

@@ -26,7 +26,7 @@ class AdminPostController extends Controller
 
         Post::create($attributes);
 
-        return redirect('/');
+        return redirect('/admin/posts')->with('success', 'Post created!');
     }
 
     public function edit(Post $post) {
@@ -42,7 +42,7 @@ class AdminPostController extends Controller
 
         $post->update($attributes);
 
-        return back()->with('success', 'Post updated!');
+        return redirect('/admin/posts')->with('success', 'Post updated!');
     }
 
     public function destroy(Post $post) {

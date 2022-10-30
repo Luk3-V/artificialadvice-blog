@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminCategoriesController;
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\AdminWritersController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,4 +45,8 @@ Route::middleware('can:admin')->group(function () {
     Route::post('admin/posts', [AdminPostController::class, 'store']);
     Route::patch('admin/posts/{post}', [AdminPostController::class, 'update']);
     Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy']);
+
+    Route::resource('admin/categories', AdminCategoriesController::class)->except('show');
+
+    Route::resource('admin/writers', AdminWritersController::class)->except('show');
 });

@@ -28,7 +28,7 @@
 
         <footer class="flex justify-between items-center mt-8">
             <div class="flex items-center text-sm">
-                <img src="{{'/images/'.$post->writer->avatar}}" alt="avatar" width="50" height="50" class="rounded">
+                <img src="{{ asset($post->writer->avatar) }}" alt="avatar" width="50" height="50" class="rounded">
                 <div class="ml-3">
                     <a href="/?writer={{ $post->writer->slug }}"><h5 class="font-bold hover:underline">{{ $post->writer->name }}</h5></a>
                     <a href="{{ $post->writer->url }}" class="hover:underline">{{ $post->writer->url }}</a>
